@@ -1,0 +1,20 @@
+{
+  "name": "contact-form-main",
+  "version": "1.0.0",
+  "description": "My First Project",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Badraan",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^3.0.2",
+    "gulp": "^5.0.0",
+    "gulp-scss": "^1.1.2"
+  },
+  "dependencies": {
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.77.4"
+  }
+}
