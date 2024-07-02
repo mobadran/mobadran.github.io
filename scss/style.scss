@@ -1,8 +1,9 @@
 $blue: #086FDC;
-$purple: #242038;
-$rose: #AC7B7D;
+$bg-light-blue: #538b95;
+$light-blue: #789CFF;
 $yellow: #EAD2AC;
-$light-blue: #C5D5E4;
+$black: #000;
+$white: #fff;
 
 * {
     margin: 0;
@@ -10,33 +11,133 @@ $light-blue: #C5D5E4;
     box-sizing: border-box;
 }
 
+// head {
+//     link[rel="shortcut icon"] {
+//         filter: invert(100%) sepia(25%) saturate(0%) hue-rotate(250deg) brightness(106%) contrast(101%);
+//     }
+// }
+
+body {
+    font-family: "Merriweather", serif;
+    background: radial-gradient(circle, $bg-light-blue, $black);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+// .logo-border {
+//     fill: url(#gradient);
+// }
+
+// .logo-letter {
+//     fill: url(#gradient-letter);
+// }
 
 header.nav {
     display: flex;
-    padding: 12px 88px;
-    background-color: $rose;
+    padding: 2vh 5vw;
+    background-color: $black;
     justify-content: space-between;
     color: white;
+    height: calc(2vh + 5rem + 50px);
+    // position: relative;
 
     span.nav-item {
-        display: flex;
         position: relative;
+        width: 350px;
+        height: 120px;
+
+        // &:hover {
+        //     cursor: pointer;
+        // }
 
         .title {
-            align-self: center;
-            bottom: -5px;
             position: absolute;
             left: 5rem;
-            bottom: 1rem - 0.5rem;
+            top: 3vh;
+            color: $white;
         }
 
-        img {
-            width: 5rem;
-            filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(335deg) brightness(102%) contrast(100%);
+        svg {
+            width: 80px;
+            height: 80px;
         }
 
         p {
+            margin: 0;
+            font-size: 40px;
+            position: absolute;
+            top: 60px; // font size of it 40px + height of adraan's 20px
+            width: max-content;
+            left: 150px;
             color: $yellow;
         }
+    }
+
+    a.nav-link {
+        color: white;
+        font-weight: 700;
+        align-self: center;
+        // position: absolute;
+        // right: 0;
+        // top: 20px;
+        // transform: translateY(20px);
+    }
+}
+
+main {
+    img {
+        position: absolute;
+        width: clamp(200px, 40vw, 500px);
+        top: calc(50% - clamp(200px, 40vw, 500px)/10);
+        left: calc(50% - clamp(200px, 40vw, 500px)/2);
+        transform: translateX(50%);
+        transform: translateY(-50%);
+    }
+
+    .box {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background-color: $black;
+        width: 80vw;
+        top: 60%;
+        left: 50%;
+        transform: translateY(-50%);
+        transform: translateX(-50%);
+        padding: 30px 62px;
+        border-radius: 0 0 100px 100px;
+
+        .box-title {
+            color: $white;
+            font-size: clamp(25px, 6vw, 100px);
+            text-shadow: 0 5px 30px hsla(226, 100%, 50%, 90%);
+
+        }
+
+        .box-content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+
+            a.btn.btn-primary {
+                border-radius: 50px;
+                font-size: clamp(12.5px, 3vw, 50px);
+                width: clamp(50px, 20vw, 400px);
+            }
+
+            .job {
+                color: $light-blue;
+                flex: 1;
+                text-align: center;
+                transform: translateY(8px);
+                font-size: clamp(12.5px, 2vw, 50px);
+                text-shadow: 0 5px 5px hsla(0, 100%, 100%, 35%);
+            }
+        }
+
     }
 }
