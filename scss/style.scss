@@ -1,3 +1,5 @@
+@use 'mixins'as *;
+
 $blue: #086FDC;
 $bg-light-blue: #538b95;
 $light-blue: #789CFF;
@@ -19,125 +21,123 @@ $white: #fff;
 
 body {
     font-family: "Merriweather", serif;
-    background: radial-gradient(circle, $bg-light-blue, $black);
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: radial-gradient(circle, hsl(0, 25%, 83%), $blue);
+    // background-size: cover;
+    // background-repeat: no-repeat;
     height: 100vh;
-}
+    color: $white;
 
-// .logo-border {
-//     fill: url(#gradient);
-// }
+    // Header
 
-// .logo-letter {
-//     fill: url(#gradient-letter);
-// }
+    .nav {
+        background-color: $black;
+        height: calc(20px + 8.5rem); // Height of padding + svg + subtitle = 10px + 10px + 6rem + 2.5rem
+        padding: 10px 0 10px 0;
 
-header.nav {
-    display: flex;
-    padding: 2vh 5vw;
-    background-color: $black;
-    justify-content: space-between;
-    color: white;
-    height: calc(2vh + 5rem + 50px);
-    // position: relative;
+        .nav-item {
+            display: flex;
+            align-items: center;
+            width: fit-content;
+            margin: auto;
+            position: relative;
+            padding-right: 70px;
+            text-decoration: none;
 
-    span.nav-item {
-        position: relative;
-        width: 350px;
-        height: 120px;
+            .B-svg {
+                width: 6rem;
+            }
 
-        // &:hover {
-        //     cursor: pointer;
+            .title {
+                color: $white;
+                display: inline;
+                font-size: 2rem;
+                transform: translateY(15px);
+                margin-left: 5px;
+            }
+
+            .subtitle {
+                color: $yellow;
+                position: absolute;
+                top: 5.5rem;
+                right: 0;
+                font-size: 2.5rem;
+            }
+        }
+    }
+
+    // Main
+    main {
+        .picture {
+            width: 50vw;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 375px;
+
+        }
+
+
+
+        .box {
+            width: 90%;
+            padding: 30px 10px 30px 10px;
+            background-color: $black;
+            border-radius: 2px 2px 50px 50px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, calc(50% + 10vw));
+
+            @include breakpoint(1200px) {
+                transform: translate(-50%, 45%);
+            }
+
+            // transform: translate(-50%, 45%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+
+            // transform: translateY(calc(80% * 1.396969697));
+
+            .box-title {
+                font-size: 5vw;
+                text-shadow: 0 5px 20px $blue;
+            }
+
+            .box-content {
+                display: flex;
+                flex-direction: row;
+                font-size: 2vw;
+                gap: 8vw;
+
+                .job {
+                    color: $light-blue;
+                    text-shadow: 0 2px 25px $white;
+                    transform: translateY(calc((3vw + 1.5vw)/2)); // btn font size + top padding / 2
+                }
+
+                .btn {
+                    color: $white;
+                    background-color: $blue;
+                    border-radius: 15px;
+                    padding: 1.5vw;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        // @include breakpoint(850px) {
+        //     .picture {
+        //         top: 60%;
+        //     }
+
+        //     .box {
+        //         top: 60%;
+        //     }
         // }
 
-        .title {
-            position: absolute;
-            left: 5rem;
-            top: 3vh;
-            color: $white;
-        }
-
-        svg {
-            width: 80px;
-            height: 80px;
-        }
-
-        p {
-            margin: 0;
-            font-size: 40px;
-            position: absolute;
-            top: 60px; // font size of it 40px + height of adraan's 20px
-            width: max-content;
-            left: 150px;
-            color: $yellow;
-        }
     }
 
-    a.nav-link {
-        color: white;
-        font-weight: 700;
-        align-self: center;
-        // position: absolute;
-        // right: 0;
-        // top: 20px;
-        // transform: translateY(20px);
-    }
-}
-
-main {
-    img {
-        position: absolute;
-        width: clamp(200px, 40vw, 500px);
-        top: calc(50% - clamp(200px, 40vw, 500px)/10);
-        left: calc(50% - clamp(200px, 40vw, 500px)/2);
-        transform: translateX(50%);
-        transform: translateY(-50%);
-    }
-
-    .box {
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        background-color: $black;
-        width: 80vw;
-        top: 60%;
-        left: 50%;
-        transform: translateY(-50%);
-        transform: translateX(-50%);
-        padding: 30px 62px;
-        border-radius: 0 0 100px 100px;
-
-        .box-title {
-            color: $white;
-            font-size: clamp(25px, 6vw, 100px);
-            text-shadow: 0 5px 30px hsla(226, 100%, 50%, 90%);
-
-        }
-
-        .box-content {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            width: 100%;
-
-            a.btn.btn-primary {
-                border-radius: 50px;
-                font-size: clamp(12.5px, 3vw, 50px);
-                width: clamp(50px, 20vw, 400px);
-            }
-
-            .job {
-                color: $light-blue;
-                flex: 1;
-                text-align: center;
-                transform: translateY(8px);
-                font-size: clamp(12.5px, 2vw, 50px);
-                text-shadow: 0 5px 5px hsla(0, 100%, 100%, 35%);
-            }
-        }
-
-    }
 }
