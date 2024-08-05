@@ -1,0 +1,152 @@
+@use 'mixins'as *;
+
+$blue: #086FDC;
+$bg-light-blue: #538b95;
+$light-blue: #789CFF;
+$yellow: #EAD2AC;
+$black: #000;
+$white: #fff;
+
+body {
+    background: linear-gradient(to left, blue, purple);
+
+    .invisible {
+        display: none;
+        justify-content: space-between;
+
+        img {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
+
+    .nav {
+        height: auto;
+        font-size: 2rem;
+
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            padding-right: auto;
+
+            .B-svg {
+                width: 3rem;
+            }
+        }
+    }
+
+    main {
+
+        margin: 5px;
+
+        .name-pic {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            .about-img {
+                width: 90%;
+                z-index: -2;
+            }
+        }
+
+        .about {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            p {
+                transform: translateY(-3.25rem);
+            }
+
+            h1 {
+                transform: translateY(-2.5rem);
+            }
+
+
+        }
+
+        .description {
+            position: relative;
+            background-color: $yellow;
+            color: $black;
+            padding: 0.75rem;
+            padding-top: 1rem;
+            border-radius: 10px;
+            // z-index: -1;
+            font-size: 1.25rem;
+            text-align: justify;
+        }
+
+        .title {
+            position: relative;
+
+            width: fit-content;
+            background-color: $bg-light-blue;
+            padding: 0.25rem;
+            border-radius: 10px;
+            font-size: 2rem;
+            margin-inline: auto;
+            z-index: 1;
+        }
+
+        .contact {
+            .description {
+                display: flex;
+                gap: 0.5rem;
+                justify-content: space-around;
+                transform: translateY(-0.75rem);
+                flex-direction: column;
+
+                .links {
+                    display: flex;
+                    gap: 0.5rem;
+                    justify-content: space-around;
+                }
+
+                span:hover {
+                    cursor: pointer;
+                }
+
+                img {
+                    width: 2rem;
+                    // margin-inline: 1rem;
+                }
+            }
+
+            fieldset {
+                // border: solid 1px $black;
+                border: none;
+                padding: 10px;
+
+                input,
+                textarea {
+                    width: 100%;
+                    border: solid 1px $black;
+                    border-radius: 5px;
+                    height: 1.5rem;
+                    padding: 4px;
+                    outline: none;
+                    font-size: calc(1.5rem - 10px);
+                    background-color: lighten($color: $yellow, $amount: 6);
+                }
+
+                textarea {
+                    height: 3rem;
+                    resize: none;
+                }
+
+                button {
+                    background-color: $blue;
+                    outline: none;
+                    border: 1px solid $black;
+                    border-radius: 15px;
+                    padding: 10px;
+                    margin-top: 5px;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
