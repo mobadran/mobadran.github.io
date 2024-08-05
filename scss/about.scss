@@ -8,7 +8,13 @@ $black: #000;
 $white: #fff;
 
 body {
+
     background: linear-gradient(to left, blue, purple);
+
+
+    .x-button:hover {
+        cursor: pointer;
+    }
 
     .invisible {
         display: none;
@@ -92,12 +98,14 @@ body {
         }
 
         .contact {
+
             .description {
                 display: flex;
                 gap: 0.5rem;
                 justify-content: space-around;
                 transform: translateY(-0.75rem);
                 flex-direction: column;
+                padding: 20px;
 
                 .links {
                     display: flex;
@@ -118,7 +126,7 @@ body {
             fieldset {
                 // border: solid 1px $black;
                 border: none;
-                padding: 10px;
+                // padding: 10px;
 
                 input,
                 textarea {
