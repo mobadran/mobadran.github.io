@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="dist/css/style.css">
-    <link rel="stylesheet" href="dist/css/about.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
     <link rel="shortcut icon" href="assets/img/B-logo-noSymbol.svg" type="image/x-icon">
     <title>About Me</title>
 </head>
 
 <body>
     <header class="nav">
-        <a class="nav-item" href="./"><svg class="B-svg" viewBox="0 0 655 655" xmlns="http://www.w3.org/2000/svg">
+        <a class="nav-item" href="./index.html"><svg class="B-svg" viewBox="0 0 655 655" xmlns="http://www.w3.org/2000/svg">
                 <g transform="scale(1,-1) translate(-100,-800)">
                     <path d="M215 776 c-38 -17 -90 -72 -104 -109 -14 -37 -14 -357 0 -394 14 -38 67 -92 106 -109 40 -17 357 -20 400 -3 38 14 92 67 109 106 20 46 20 360 0 406 -17 39 -71 92 -109 106 -43 16 -365 14 -402 -3z m415 -32 c78 -45 97 -118 88 -334 -6 -132 -19 -168 -76 -207 -41 -27 -144 -38 -293 -31 -204 10 -239 65 -227 358 5 128 18 164 70 203 40 30 88 36 253 34 131 -2 156 -6 185 -23z" fill="#EAD2AC" />
                     <path d="M375 643 c-32 -9 -65 -34 -81 -64 -23 -45 -16 -56 13 -24 40 42 41 16 4 -99 -36 -113 -32 -137 25 -156 74 -25 178 11 209 70 22 42 19 59 -15 90 l-29 27 24 23 c26 25 32 59 15 89 -19 36 -106 59 -165 44z m87 -70 c24 -21 23 -39 -4 -57 -41 -29 -54 -21 -50 29 4 49 21 58 54 28z m-14 -129 c27 -19 28 -48 2 -74 -22 -22 -65 -27 -75 -9 -4 6 -2 30 5 55 14 48 30 55 68 28z" fill="#EAD2AC" />
@@ -25,6 +25,7 @@
             <h2 class="name">Mohammed Badraan <br>( Mo Badraan )</h2>
             <img src="assets/img/about-me.png" alt="A picture of me" class="about-img">
         </section>
+        <!-- <div class="right-side"> -->
         <section class="about">
             <h1 class="title">About Me</h1>
 
@@ -47,12 +48,12 @@
 
                 <fieldset>
                     <legend>Send Me A Message!</legend>
-                    <form action="">
+                    <form action="mailto:mohamedbadran1492008@gmail.com" method="post" enctype="text/plain">
                         <label for="name">Name: </label>
                         <input placeholder="John Doe" type="text" name="name" id="name" required>
-                        <br>
+                        <!-- <br>
                         <label for="email">Email: </label>
-                        <input placeholder="person@example.com" type="email" name="email" id="email">
+                        <input placeholder="person@example.com" type="email" name="email" id="email"> -->
                         <br>
                         <label for="message">Message: </label>
                         <textarea placeholder="Hello!" name="message" id="message" required></textarea>
@@ -62,9 +63,10 @@
                 </fieldset>
             </div>
         </section>
+        <!-- </div> -->
     </main>
 
-    <script src="dist/js/index.js"></script>
+    <script src="js/index.js"></script>
 
 </body>
 

@@ -28,16 +28,12 @@ body {
 
     .nav {
         height: auto;
-        font-size: 2rem;
 
         .nav-item {
+            font-size: 2rem;
             color: white;
             text-decoration: none;
             padding-right: auto;
-
-            .B-svg {
-                width: 3rem;
-            }
         }
     }
 
@@ -63,11 +59,11 @@ body {
             align-items: center;
 
             p {
-                transform: translateY(-3.25rem);
+                transform: translateY(-3.5rem);
             }
 
             h1 {
-                transform: translateY(-2.5rem);
+                transform: translateY(-2.75rem);
             }
 
 
@@ -90,7 +86,7 @@ body {
 
             width: fit-content;
             background-color: $bg-light-blue;
-            padding: 0.25rem;
+            padding: 0.5rem;
             border-radius: 10px;
             font-size: 2rem;
             margin-inline: auto;
@@ -153,8 +149,82 @@ body {
                     padding: 10px;
                     margin-top: 5px;
                     font-size: 1rem;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                label[for="name"]::after,
+                label[for="message"]::after {
+                    content: "*";
+                    color: red;
                 }
             }
+        }
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    body {
+        main {
+            display: grid;
+            row-gap: 10px;
+            column-gap: 10px;
+            grid-template-areas:
+                'pic pic about about'
+                'pic pic about about'
+                'contact contact contact contact';
+
+            // @include breakpoint(1200) {
+            //     grid-template-areas:
+            //         'pic pic about about'
+            //         'pic pic contact contact';
+            //     // 'contact contact contact contact';
+            // }
+
+            .name-pic {
+                grid-area: pic;
+                flex-direction: column-reverse;
+
+                .name {
+                    background-color: $black;
+                    width: 100%;
+                    padding: 10px;
+                    border-radius: 15px;
+                    // margin-bottom: 10px;
+                }
+            }
+
+            .about {
+                grid-area: about;
+
+                h1 {
+                    transform: translate(0);
+                }
+
+                p {
+                    transform: translateY(-0.75rem);
+                }
+            }
+
+            .contact {
+                grid-area: contact;
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 1200px) {
+    body {
+        main {
+            display: grid;
+            row-gap: 10px;
+            grid-template-areas:
+                'pic pic about about'
+                'pic pic contact contact'
+                // 'contact contact contact contact';
         }
     }
 }

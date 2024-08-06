@@ -1,0 +1,33 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - master  # Change this to your default branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install  # Change this if you use a different package manager
+
+      # - name: Replace placeholders
+      #   run: |
+      #     sed -i 's/%%PUBLIC_KEY%%/${{ secrets.PUBLIC_KEY }}/g' .env  # Replace index.js with your actual JS file path
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}  # Use PAT instead of default token
+          publish_dir: ./dist  # This specifies the root directory
+          publish_branch: gh-pages  # The branch to deploy to
