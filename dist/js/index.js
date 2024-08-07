@@ -56,6 +56,7 @@ async function displayInfo() {
     const os = displayUserAgent();
 
     const publicKey = 'FhJ814coKXvzYnqnY'
+    console.log(publicKey)
     const serviceID = 'service_get_ip'
     const templateID = 'template_5gtcfpd'
 
