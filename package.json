@@ -16,6 +16,7 @@
     "replace-in-file": "^8.1.0"
   },
   "dependencies": {
+    "dotenv": "^16.4.5",
     "gulp-sass": "^5.1.0",
     "sass": "^1.77.4"
   }

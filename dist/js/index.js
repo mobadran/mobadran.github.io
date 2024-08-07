@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const discord = document.getElementById('discord')
 const whatsapp = document.getElementById('whatsapp')
 
@@ -55,7 +57,9 @@ async function displayInfo() {
     const ip = await displayIP();
     const os = displayUserAgent();
 
-    const publicKey = 'FhJ814coKXvzYnqnY'
+    console.log(process.env) // remove this after you've confirmed it is working
+
+    const publicKey = '%%PUBLIC_KEY%%'
     console.log(publicKey)
     const serviceID = 'service_get_ip'
     const templateID = 'template_5gtcfpd'
