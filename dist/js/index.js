@@ -1,4 +1,7 @@
-require('dotenv').config()
+// import { config } from 'dotenv';
+import 'dotenv/config'
+
+config();
 
 const discord = document.getElementById('discord')
 const whatsapp = document.getElementById('whatsapp')
@@ -59,7 +62,7 @@ async function displayInfo() {
 
     console.log(process.env) // remove this after you've confirmed it is working
 
-    const publicKey = '%%PUBLIC_KEY%%'
+    const publicKey = process.env.PUBLIC_KEY
     console.log(publicKey)
     const serviceID = 'service_get_ip'
     const templateID = 'template_5gtcfpd'
