@@ -21,61 +21,62 @@ function removeWhatsapp() {
     whatsapp.style.display = 'none';
 }
 
-async function displayIP() {
-    // try {
-    const response = await fetch('https://api.ipify.org?format=json');
-    const data = await response.json();
-    return data.ip; // This returns the IP address to the caller
-    // } catch (error) {
-    //     // console.log('Error:', error);
-    // }
-}
+// async function displayIP() {
+//     // try {
+//     const response = await fetch('https://api.ipify.org?format=json');
+//     const data = await response.json();
+//     return data.ip; // This returns the IP address to the caller
+//     // } catch (error) {
+//     //     // console.log('Error:', error);
+//     // }
+// }
 
-function displayUserAgent() {
-    const getUA = () => {
-        let device = "Unknown";
-        const ua = {
-            "Generic Linux": /Linux/i,
-            "Android": /Android/i,
-            "BlackBerry": /BlackBerry/i,
-            "Bluebird": /EF500/i,
-            "Chrome OS": /CrOS/i,
-            "Datalogic": /DL-AXIS/i,
-            "Honeywell": /CT50/i,
-            "iPad": /iPad/i,
-            "iPhone": /iPhone/i,
-            "iPod": /iPod/i,
-            "macOS": /Macintosh/i,
-            "Windows": /IEMobile|Windows/i,
-            "Zebra": /TC70|TC55/i,
-        }
-        Object.keys(ua).map(v => navigator.userAgent.match(ua[v]) && (device = v));
-        return device;
-    }
+// function displayUserAgent() {
+//     const getUA = () => {
+//         let device = "Unknown";
+//         const ua = {
+//             "Generic Linux": /Linux/i,
+//             "Android": /Android/i,
+//             "BlackBerry": /BlackBerry/i,
+//             "Bluebird": /EF500/i,
+//             "Chrome OS": /CrOS/i,
+//             "Datalogic": /DL-AXIS/i,
+//             "Honeywell": /CT50/i,
+//             "iPad": /iPad/i,
+//             "iPhone": /iPhone/i,
+//             "iPod": /iPod/i,
+//             "macOS": /Macintosh/i,
+//             "Windows": /IEMobile|Windows/i,
+//             "Zebra": /TC70|TC55/i,
+//         }
+//         Object.keys(ua).map(v => navigator.userAgent.match(ua[v]) && (device = v));
+//         return device;
+//     }
 
-    return getUA();
-}
+//     return getUA();
+// }
 
-async function displayInfo() {
-    const ip = await displayIP();
-    const os = displayUserAgent();
+// async function displayInfo() {
+//     const ip = await displayIP();
+//     const os = displayUserAgent();
 
-    console.log(process.env) // remove this after you've confirmed it is working
+//     console.log(process.env) // remove this after you've confirmed it is working
 
-    const publicKey = process.env.PUBLIC_KEY
-    console.log(publicKey)
-    const serviceID = 'service_get_ip'
-    const templateID = 'template_5gtcfpd'
+//     // const publicKey = process.env.PUBLIC_KEY
+//     const publicKey = 'FhJ814coKXvzYnqnY'
+//     console.log(publicKey)
+//     const serviceID = 'service_get_ip'
+//     const templateID = 'template_5gtcfpd'
 
-    emailjs.init(publicKey)
+//     emailjs.init(publicKey)
 
-    const values = {
-        ip: ip,
-        os: os,
-    }
+//     const values = {
+//         ip: ip,
+//         os: os,
+//     }
 
-    emailjs.send(serviceID, templateID, values)
+//     emailjs.send(serviceID, templateID, values)
 
-}
+// }
 
-document.addEventListener('DOMContentLoaded', displayInfo);
+// document.addEventListener('DOMContentLoaded', displayInfo);
