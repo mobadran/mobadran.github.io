@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badraan's Projects</title>
+    <style>
+        * {
+            font-family: sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+        }
+
+        iframe {
+            width: 100%;
+            height: 80vh;
+            border: 1px solid black;
+        }
+
+        #container>div {
+            padding: 8px;
+            width: 100%;
+        }
+
+        #container>div>a {
+            display: block;
+            font-size: 32px;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            margin-block: 20px 12px;
+        }
+
+        #container>div>a:hover {
+            color: #ffffff9a;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>My Projects</h1>
+
+    <section id="container">
+        <!-- <div>
+            <iframe src="https://mobadran.github.io/bs-pricing-page" frameborder="0"></iframe>
+            <a href="https://mobadran.github.io/bs-pricing-page" target="_blank">bs-pricing-page</a>
+        </div> -->
+    </section>
+
+    <script>
+        async function getRepoNames() {
+            try {
+                // const response = await fetch('http://localhost:3000/fetch-repos'); // Backend API
+                const response = await fetch('https://9f0dcf13-004c-421a-8fe2-a02487e020b5-00-cat0g3lu3a7e.picard.replit.dev/fetch-repos'); // Backend API
+                const repos = await response.json();
+                return repos; // Return the array of repo contents
+            } catch (error) {
+                console.error('Error fetching repo contents:', error);
+            }
+        }
+
+        function createElements(urls, names) {
+            let text = document.getElementById('container').innerHTML;
+            urls.forEach(url => {
+                text += `<div>
+                            <a href="${url}" target="_blank">${names[urls.indexOf(url)]}</a>
+                            <iframe src="${url}" frameborder="0"></iframe>
+                        </div>`;
+            });
+            document.getElementById('container').innerHTML = text; // Update the container with the new content
+        }
+
+        // Use `await` to get the repo names and then process them
+        async function loadAndCreateElements() {
+            const repos = await getRepoNames(); // Wait for the repos to be fetched
+            if (repos) {
+                const urls = repos.map(element => `https://mobadran.github.io/${element}/`);
+                createElements(urls, repos); // Create elements after the URLs are mapped
+            }
+        }
+
+        loadAndCreateElements(); // Call the function to load and create elements
+    </script>
+</body>
+
+</html>
