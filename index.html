@@ -59,36 +59,37 @@
     <script>
         async function getRepoNames() {
             try {
-                // const response = await fetch('http://localhost:3000/fetch-repos'); // Backend API
-                const response = await fetch('https://9f0dcf13-004c-421a-8fe2-a02487e020b5-00-cat0g3lu3a7e.picard.replit.dev/fetch-repos'); // Backend API
+                const response = await fetch('https://api.github.com/users/mobadran/repos');
                 const repos = await response.json();
-                return repos; // Return the array of repo contents
+                return repos;
             } catch (error) {
                 console.error('Error fetching repo contents:', error);
             }
         }
 
         function createElements(urls, names) {
-            let text = document.getElementById('container').innerHTML;
+            let text = '';
             urls.forEach(url => {
                 text += `<div>
                             <a href="${url}" target="_blank">${names[urls.indexOf(url)]}</a>
                             <iframe src="${url}" frameborder="0"></iframe>
                         </div>`;
             });
-            document.getElementById('container').innerHTML = text; // Update the container with the new content
+            document.getElementById('container').innerHTML = text;
         }
 
-        // Use `await` to get the repo names and then process them
         async function loadAndCreateElements() {
-            const repos = await getRepoNames(); // Wait for the repos to be fetched
+            const repos = await getRepoNames();
             if (repos) {
-                const urls = repos.map(element => `https://mobadran.github.io/${element}/`);
-                createElements(urls, repos); // Create elements after the URLs are mapped
+                const urls = repos.filter(element => element.has_pages).map(element => element.homepage)
+                const reposNames = repos.filter(element => element.has_pages).map(element => element.name);
+                createElements(urls, reposNames);
+            } else {
+                console.log(repos);
             }
         }
 
-        loadAndCreateElements(); // Call the function to load and create elements
+        loadAndCreateElements();
     </script>
 </body>
 
