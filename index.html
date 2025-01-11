@@ -81,7 +81,7 @@
         async function loadAndCreateElements() {
             const repos = await getRepoNames();
             if (repos) {
-                const urls = repos.filter(element => element.has_pages).map(element => element.homepage)
+                const urls = repos.filter(element => element.has_pages && element.name !== 'mobadran.github.io').map(element => element.homepage)
                 const reposNames = repos.filter(element => element.has_pages).map(element => element.name);
                 createElements(urls, reposNames);
             } else {
